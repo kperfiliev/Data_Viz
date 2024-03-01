@@ -1,8 +1,9 @@
 #Kirill, Stuart, Andrew
 library(dplyr)
+library(countrycode)
 
 #read the whole data
-data <- read.csv("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_348\\Data_Viz\\global_firepower_2022_wide.csv")
+data <- read.csv("global_firepower_2022_wide.csv")
 
 #create a table with the specific variables
 project_data <- select(data, country, Active.Personnel, Defense.Budget, Waterways..usable., Attack.Helicopters, 
@@ -21,4 +22,9 @@ project_data3 <- project_data2 %>%
 
 #working data with the main variables
 project_data4 <- select(project_data3, country, Active.Personnel, Defense.Budget, Waterways..usable., air_power)
+
+#add continent column
+project_data4$continent <- countrycode(sourcevar = project_data4[, "country"],
+                            origin = "country.name",
+                            destination = "continent")
 
