@@ -1,6 +1,7 @@
 #Kirill, Stuart, Andrew
 library(dplyr)
 library(countrycode)
+library(ggplot2)
 
 #read the whole data
 data <- read.csv("global_firepower_2022_wide.csv")
@@ -28,3 +29,16 @@ project_data4$continent <- countrycode(sourcevar = project_data4[, "country"],
                             origin = "country.name",
                             destination = "continent")
 
+#Remove everything that has high air power to see the small cluster
+dataNoUS <- project_data4[project_data4$air_power < 15000, , drop = FALSE]
+
+#Create the bubble graph from the data
+ggplot(data = project_data4, aes(x = Waterways..usable., y = air_power, size = Active.Personnel, color = continent)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(data = project_data4, method = "lm", se = FALSE, aes(group = 1)) +
+  labs(title = "Title",
+       x = "Available Waterways",
+       y = "Total Air Power",
+       color = "Continents") +
+  guides(size = FALSE) +
+  theme_minimal()
