@@ -33,9 +33,9 @@ project_data4$continent <- countrycode(sourcevar = project_data4[, "country"],
 dataNoUS <- project_data4[project_data4$air_power < 15000, , drop = FALSE]
 
 #Create the bubble graph from the data
-ggplot(data = project_data4, aes(x = Waterways..usable., y = air_power, size = Active.Personnel, color = continent)) +
+ggplot(data = project_data4, aes(x = log10(Waterways..usable.), y = log(air_power), size = Active.Personnel, color = continent)) +
   geom_point(alpha = 0.3) +
-  geom_smooth(data = project_data4, method = "lm", se = FALSE, aes(group = 1)) +
+  geom_smooth(data = project_data4, method = "lm", se = FALSE, aes(group = 1), color = "gray") +
   labs(title = "Title",
        x = "Available Waterways",
        y = "Total Air Power",
