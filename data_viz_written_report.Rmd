@@ -26,7 +26,8 @@ knitr::include_graphics("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_
 
 3. The primary purpose of the author appears to have been to show the correlations between different aspects of the military. The author used a reddish color and darkness to show the strength of correlations and it was effective in making some of the correlations stand out from the rest. The scale on the right hand side of the graph also clarified the color meaning of each box. However, it did not help the author's purpose and it did not help the reader understand the author's purpose either. The graph is cluttered with too many variables which makes the graph difficult to read. Also, there is far too much non-data ink which is distracting for the reader. Finally, there is no title making the graph less presentable.
 
-4. 
+
+4. The original graph had too much data on it, making it very hard to read and understand it. The viewer would have to spend some time looking at it, in order to understand the story its trying to tell. Additionally, we specifically decided to focus on only on 5 variables (country, active personnel, defense budget, waterways usable, and air power). We were very interested in the results of how much the country relies on the use of air power (total air) based on their access to water. We did this while including the defense budget based on active personnel.  In other words, our thought was the more access to water a country has, the less it is dependent to air because it can use ground, water, and air transportation - the spread of resources is equal. 
 
 
 
