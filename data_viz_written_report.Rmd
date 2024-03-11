@@ -24,9 +24,7 @@ knitr::include_graphics("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_
 ```
 
 
-3. 
-
-
+3. The primary purpose of the author appears to have been to show the correlations between different aspects of the military. The author used a reddish color and darkness to show the strength of correlations and it was effective in making some of the correlations stand out from the rest. The scale on the right hand side of the graph also clarified the color meaning of each box. However, it did not help the author's purpose and it did not help the reader understand the author's purpose either. The graph is cluttered with too many variables which makes the graph difficult to read. Also, there is far too much non-data ink which is distracting for the reader. Finally, there is no title making the graph less presentable.
 
 4. 
 
