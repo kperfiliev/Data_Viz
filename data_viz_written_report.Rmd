@@ -9,6 +9,7 @@ output: html_document
 library(dplyr)
 library(countrycode)
 library(ggplot2)
+library(knitr)
 
 ```
 
@@ -61,18 +62,67 @@ project_data4$continent <- countrycode(sourcevar = project_data4[, "country"],
 
 project_data5 <- project_data4[order(-project_data4$air_power),]
 
+
+
 dim(project_data5)
-head(project_data5)
-tail(project_data5)
+kable(head(project_data5), caption = "Head of project_data5")
+kable(tail(project_data5), caption = "Tail of project_data5")
+
+
+```
+
+analysis of the graph
+
+
+## Final Graph
+
+6.7.8. Our final graph;Comments about the code for the Graph; Caption
+
+```{r}
+
+```
+
+
+9. 
+
+
+
+## Discussion
+11. We dicided to create a scatterplot graph that has the size of the bubles based on the defense budget related to the active personnel. It was hard to make the graph that represents all of that. 
+
+We originally had this graph that was not scaled based on log function. The reason why we decided to change it is because a bunch of points are just so compiled and you couldn't see the data well.
+
+```{r}
+#Create the bubble graph from the data
+ggplot(data = project_data4, aes(x = Waterways..usable., y = air_power, size = Active.Personnel, color = continent)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(data = project_data4, method = "lm", se = FALSE, aes(group = 1)) +
+  labs(title = "Title",
+       x = "Available Waterways",
+       y = "Total Air Power",
+       color = "Continents") +
+  guides(size = FALSE) +
+  theme_minimal()
+
+```
+
+
+Additionally, we ended up going through with our original question of the story we are trying to tell. However, the resutlts we received are completely the oposite from our original thought.
+
+```{r}
+knitr::include_graphics("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_348\\Data_Viz\\sketch_graph.jpg")
 
 
 ```
 
 
+The most difficult part of the project was producing the graph and making it readable to the viewer. However, thank you to Jillian and Cole for their valuable feedback for our graph.
+
+Jillian: mentioned how our graph had a lot on the graph but it was not very well pointed out. For example, she noticed how we didn't have description of the difference size of the size of the dots, and how the x and y axis titles were not bolded making it harder to notice them. Furthermore, she said how the colors are too closely alike, meaning we should choose different colors. Finally, she mentioned to add units. 
 
 
 
-
+Cole: 
 
 
 
