@@ -1,0 +1,93 @@
+---
+title: "Data_Viz Written Report"
+author: "Kirill Perfiliev, Stuart Gavidia, Andrew Sandoval"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+library(countrycode)
+library(ggplot2)
+
+```
+
+
+1.Sasakitetsuya, T. (2022, February 23). Top 20 defense budget countries analysis. Kaggle.
+  a. https://www.kaggle.com/code/sasakitetsuya/top-20-defense-budget-countries-analysis 
+
+2. Initial Graph
+
+```{r, echo=FALSE}
+knitr::include_graphics("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_348\\Data_Viz\\init_graph.png")
+
+```
+
+
+3. 
+
+
+
+4. 
+
+
+
+5. Our data that we are working with
+```{r}
+#read the whole data
+data <- read.csv("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_348\\Data_Viz\\global_firepower_2022_wide.csv")
+
+#create a table with the specific variables
+project_data <- select(data, country, Active.Personnel, Defense.Budget, Waterways..usable., Attack.Helicopters, 
+                       Fighters.Interceptors, Helicopters, Total.Aircraft.Strength)
+
+#ensure the data has no nulls
+project_data1 <- na.omit(project_data)
+
+#it seems that Total.Aircraft.Strength = Fighters.Interceptors, so get rid off the one column
+project_data2 <- project_data1[, -8]
+
+
+#combining all of the air values together into a new column
+project_data3 <- project_data2 %>%
+  mutate(air_power = Attack.Helicopters + Fighters.Interceptors + Helicopters)
+
+#working data with the main variables
+project_data4 <- select(project_data3, country, Active.Personnel, Defense.Budget, Waterways..usable., air_power)
+
+#add continent column
+project_data4$continent <- countrycode(sourcevar = project_data4[, "country"],
+                            origin = "country.name",
+                            destination = "continent")
+
+project_data5 <- project_data4[order(-project_data4$air_power),]
+
+dim(project_data5)
+head(project_data5)
+tail(project_data5)
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
