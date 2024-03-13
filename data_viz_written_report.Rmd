@@ -71,9 +71,6 @@ kable(tail(project_data5), caption = "Tail of project_data5")
 
 ```
 
-analysis of the graph
-
-
 ## Final Graph
 
 6.7.8. Our final graph;Comments about the code for the Graph; Caption
