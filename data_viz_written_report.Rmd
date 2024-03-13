@@ -83,12 +83,10 @@ analysis of the graph
 ```
 
 
-9. 
-
-
+9. Our graph stands out as an exemplary representation of data through its adherence to key data visualization principles, which significantly enhanced its clarity and analytical depth. By prioritizing the data ink ratio, as advocated by Tufte in "The Visual Display of Quantitative Information" (Chapter 4), we ensured the majority of ink visually represents the data, with minimal and purposeful use of non-data ink for elements like a succinct legend and the minimalist theme design, to reduce visual clutter and focus attention on the data itself. This graph also aligned with the area principle from Sharpe's "Business Statistics" (Chapter 4), where the size of each dot accurately reflected the magnitude of each country's defense budget, correcting previous representations' lack of quantitative precision. Our decision to use a logarithmic scale for displaying total air power and available waterways, followed the scale selection advice in Sharpe's "Business Statistics" (Chapter 5). We ensured that we chose an appropriate scale to give the reader a better picture of our data and the variables' correlation. Again in Sharpe's "Business Statistics" (Chapter 5) we made sure to conduct research into any possible outliers. We identified three possible outliers but upon further research indentified them to be the USA, China, and Russia. These were global superpowers and to make sure our graph wasn't being stretched out from these outliers, we opted for the logarithmic scale. This meticulous application of data visualization principles not only enhances the work's credibility but also enriches the viewer's understanding, making our graph a superior tool for conveying complex information.
 
 ## Discussion
-11. We dicided to create a scatterplot graph that has the size of the bubles based on the defense budget related to the active personnel. It was hard to make the graph that represents all of that. 
+11. We decided to create a scatter plot graph that has the size of the bubbles based on the defense budget related to the active personnel. It was hard to make the graph that represents all of that. 
 
 We originally had this graph that was not scaled based on log function. The reason why we decided to change it is because a bunch of points are just so compiled and you couldn't see the data well.
 
@@ -106,7 +104,6 @@ ggplot(data = project_data4, aes(x = Waterways..usable., y = air_power, size = A
 
 ```
 
-
 Additionally, we ended up going through with our original question of the story we are trying to tell. However, the resutlts we received are completely the oposite from our original thought.
 
 ```{r}
@@ -115,27 +112,13 @@ knitr::include_graphics("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_
 
 ```
 
-
 The most difficult part of the project was producing the graph and making it readable to the viewer. However, thank you to Jillian and Cole for their valuable feedback for our graph.
 
-Jillian: mentioned how our graph had a lot on the graph but it was not very well pointed out. For example, she noticed how we didn't have description of the difference size of the size of the dots, and how the x and y axis titles were not bolded making it harder to notice them. Furthermore, she said how the colors are too closely alike, meaning we should choose different colors. Finally, she mentioned to add units. 
+Jillian Feedback:
+Jillian highlighted the need for clarity in our graph, pointing out missing elements such as a legend for dot sizes and bolded axis titles for better visibility. She also suggested using more distinct colors to improve differentiation and adding units to quantify the data clearly.
 
-
-
-Cole: different colors seem cool, lots of countries with no water ways. Countries with more waterways have more airpower. Need a key for what the sizes of circles mean to clarify. Great work using alpha to make the dots see through in order not to block countries! I would recommend adding a clarification for what the sizes of the circles mean, along with a title for the graphic. Overall, great work keeping it simple and not creating any chart junk!
-
-
-
-
-
-
-
-
-
-
-
-
-
+Cole Feedback:
+Cole appreciated the graph's aesthetics and transparency feature, noting a correlation between waterways and airpower. He recommended including a key for the circle sizes to clarify their meaning and praised the simplicity and cleanliness of the design, suggesting only the addition of a title for completeness.
 
 
 
