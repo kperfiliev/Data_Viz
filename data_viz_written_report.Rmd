@@ -81,8 +81,9 @@ dataNoUS <- project_data4[project_data4$air_power < 15000, , drop = FALSE]
 library(ggplot2)
 
 # Updated bubble graph from the data
-ggplot(data = project_data4, aes(x = log(Waterways..usable.), y = log(air_power), size = Active.Personnel, color = continent)) +
+ggplot(data = project_data4, aes(x = log(Waterways..usable.), y = log(air_power), size = Defense.Budget, color = continent)) +
   geom_point(alpha = 0.3) +  #Transparency feature
+  scale_size(range = c(1, 20), name = "Active Personnel") + #Scales the bubbles linearly
   geom_smooth(data = project_data4, method = "lm", se = FALSE, aes(group = 1), color = "gray") +  #Linear model fit
   scale_color_manual(values = c("blue", "red", "green", "purple", "orange", "yellow"), na.value = "lightgrey") +#Use distinct custom colors
   labs(title = "The Role of Waterways and Air Power Globally",
@@ -98,7 +99,7 @@ ggplot(data = project_data4, aes(x = log(Waterways..usable.), y = log(air_power)
 ```
 
 
-9. Our graph stands out as an exemplary representation of data through its adherence to key data visualization principles, which significantly enhanced its clarity and analytical depth. By prioritizing the data ink ratio, as advocated by Tufte in "The Visual Display of Quantitative Information" (Chapter 4), we ensured the majority of ink visually represents the data, with minimal and purposeful use of non-data ink for elements like a succinct legend and the minimalist theme design, to reduce visual clutter and focus attention on the data itself. This graph also aligned with the area principle from Sharpe's "Business Statistics" (Chapter 4), where the size of each dot accurately reflected the magnitude of each country's defense budget, correcting previous representations' lack of quantitative precision. Our decision to use a logarithmic scale for displaying total air power and available waterways, followed the scale selection advice in Sharpe's "Business Statistics" (Chapter 5). We ensured that we chose an appropriate scale to give the reader a better picture of our data and the variables' correlation. Again in Sharpe's "Business Statistics" (Chapter 5) we made sure to conduct research into any possible outliers. We identified three possible outliers but upon further research indentified them to be the USA, China, and Russia. These were global superpowers and to make sure our graph wasn't being stretched out from these outliers, we opted for the logarithmic scale. This meticulous application of data visualization principles not only enhances the work's credibility but also enriches the viewer's understanding, making our graph a superior tool for conveying complex information.
+9. Our graph stands out as an exemplary representation of data through its adherence to key data visualization principles, which significantly enhanced its clarity and analytical depth. By prioritizing the data ink ratio, as advocated by Tufte in "The Visual Display of Quantitative Information" (Chapter 4), we ensured the majority of ink visually represents the data, with minimal and purposeful use of non-data ink for elements like a succinct legend and the minimalist theme design, to reduce visual clutter and focus attention on the data itself. This graph also aligned with the area principle from Sharpe's "Business Statistics" (Chapter 4), where the size of each dot accurately reflected the magnitude of each country's defense budget, correcting previous representations' lack of quantitative precision. Our decision to use a logarithmic scale for displaying total air power and available waterways, followed the scale selection advice in Sharpe's "Business Statistics" (Chapter 5). We ensured that we chose an appropriate scale to give the reader a better picture of our data and the variables' correlation. Again in Sharpe's "Business Statistics" (Chapter 5) we made sure to conduct research into any possible outliers. We identified three possible outliers but upon further research identified them to be the USA, China, and Russia. These were global superpowers and to make sure our graph wasn't being stretched out from these outliers, we opted for the logarithmic scale. This meticulous application of data visualization principles not only enhances the work's credibility but also enriches the viewer's understanding, making our graph a superior tool for conveying complex information.
 
 ## Discussion
 11. We decided to create a scatter plot graph that has the size of the bubbles based on the defense budget related to the active personnel. It was hard to make the graph that represents all of that. 
@@ -119,7 +120,7 @@ ggplot(data = project_data4, aes(x = Waterways..usable., y = air_power, size = A
 
 ```
 
-Additionally, we ended up going through with our original question of the story we are trying to tell. However, the resutlts we received are completely the oposite from our original thought.
+Additionally, we ended up going through with our original question of the story we are trying to tell. However, the results we received are completely the oposite from our original thought.
 
 ```{r}
 knitr::include_graphics("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_348\\Data_Viz\\sketch_graph.jpg")
