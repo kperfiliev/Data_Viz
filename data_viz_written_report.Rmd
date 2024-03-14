@@ -35,7 +35,7 @@ knitr::include_graphics("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_
 5. Our data that we are working with
 ```{r}
 #read the whole data
-data <- read.csv("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_348\\Data_Viz\\global_firepower_2022_wide.csv")
+data <- read.csv("global_firepower_2022_wide.csv")
 
 #create a table with the specific variables
 project_data <- select(data, country, Active.Personnel, Defense.Budget, Waterways..usable., Attack.Helicopters, 
@@ -73,10 +73,28 @@ kable(tail(project_data5), caption = "Tail of project_data5")
 
 ## Final Graph
 
-6.7.8. Our final graph;Comments about the code for the Graph; Caption
+```{r, warning=FALSE}
+#Remove everything that has high air power to see the small cluster
+dataNoUS <- project_data4[project_data4$air_power < 15000, , drop = FALSE]
 
-```{r}
+#Create the bubble graph from the data
+library(ggplot2)
 
+# Updated bubble graph from the data
+ggplot(data = project_data4, aes(x = log(Waterways..usable.), y = log(air_power), size = Active.Personnel, color = continent)) +
+  geom_point(alpha = 0.3) +  #Transparency feature
+  geom_smooth(data = project_data4, method = "lm", se = FALSE, aes(group = 1), color = "gray") +  #Linear model fit
+  scale_color_manual(values = c("blue", "red", "green", "purple", "orange", "yellow"), na.value = "lightgrey") +#Use distinct custom colors
+  labs(title = "The Role of Waterways and Air Power Globally",
+       x = "Available Waterways (log scale)",  #Adding units
+       y = "Total Air Power (log scale)",  #Adding units
+       color = "Continents",
+       caption = "Dot size represents the defense budget of a country.") +
+  guides(size = FALSE) +  #Remove the legend for "Defense Budget"
+  theme_minimal() +
+  theme(axis.title.x = element_text(face = "bold"),  #Bolden x-axis title
+        axis.title.y = element_text(face = "bold"),  #Bolden y-axis title
+        legend.position = "right")  #Adjust legend position if needed
 ```
 
 
