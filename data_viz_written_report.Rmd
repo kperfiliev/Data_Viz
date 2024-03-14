@@ -72,7 +72,7 @@ kable(tail(project_data5), caption = "Tail of project_data5")
 ```
 
 ## Final Graph
-
+6,7,8.
 ```{r, warning=FALSE}
 #Remove everything that has high air power to see the small cluster
 dataNoUS <- project_data4[project_data4$air_power < 15000, , drop = FALSE]
