@@ -33,7 +33,7 @@ knitr::include_graphics("C:\\Users\\kiril\\OneDrive\\Desktop\\huh\\School\\Math_
 
 
 5. Our data that we are working with
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #read the whole data
 data <- read.csv("global_firepower_2022_wide.csv")
 
